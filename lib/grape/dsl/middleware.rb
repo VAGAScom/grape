@@ -35,6 +35,13 @@ module Grape
           namespace_stackable(:middleware, arr)
         end
 
+        def insert(*args, &block)
+          arr = [:insert, *args]
+          arr << block if block_given?
+
+          namespace_stackable(:middleware, arr)
+        end
+
         # Retrieve an array of the middleware classes
         # and arguments that are currently applied to the
         # application.
